@@ -24,7 +24,7 @@ app.use((req, res, next) => {
 app.use('/api/todos/', todoRoutes)
 
 //Express Listening on the Port
-const port = process.env.port
+const port = process.env.PORT || 2108;
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 })
