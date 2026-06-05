@@ -5,15 +5,16 @@ const todomodel = require('../models/todomodel')
 /* Function: Creating a new task */
 exports.createTask = async(req,res) => {
     const {title, description, completed} = req.body;
-    if(!title || !description || completed == ''){
+    if(!title || !description || completed === undefined){
     return res.status(400).json({
+      success: false,
       error: 'Please fill all the fields'
     })
     }
     try {
     const todo = await todomodel.create(req.body)
     res.status(200).json({
-           message: "The task has been added",
+           success: true,
            data: todo
         })
     }
@@ -27,12 +28,8 @@ exports.createTask = async(req,res) => {
 /* Function: View all the Tasks */
 exports.viewTasks = async(req,res) => {
 const todo = await todomodel.find()
-    if(!todo){
-        res.status(400).json({
-            message: "No tasks found in the database"
-        })
-    }
     res.status(200).json({
+           success: true,
            data: todo
         })
 }
@@ -43,15 +40,17 @@ const {id} = req.params;
 const {data} = req.body;
 const todo = await todomodel.findByIdAndUpdate(
     id, 
-    data, 
+    data,
     {returnDocument: "after"}
 )
     if(!todo){
         res.status(400).json({
+            success: false,
             message: "Task of that Id is not found"
         })
     }
     res.status(200).json({
+           success: true,
            data: todo
         })
 }
@@ -62,10 +61,12 @@ exports.deleteTask = async(req,res) => {
     const todo = await todomodel.findByIdAndDelete(id)
     if(!todo){
         res.status(400).json({
-            message: "No tasks found in the database"
+            success: false,
+            message: "No tasks of that Id found in the database"
         })
     }
     res.status(200).json({
+           success: true,
            message: "The task has been succesfully deleted"
         })
 }

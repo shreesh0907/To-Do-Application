@@ -55,11 +55,14 @@ MONGODB_URI=mongodb://shreeshpd07:gRiW8hrRFUmu1ofT@ac-umaavqw-shard-00-00.yokvwt
     Marking a task as completed/incomplete  >> [PATCH /todos/:id]
     Deleting a task                         >> [DELETE /todos/:id]
 
-## Backend --
+## Commands --
     npm init -y
     npm i express
     npm i nodemon
     npm i dotenv
+    npm i mongoose
+    npm i mongodb
+    npm i react-router-dom
 >> Running the Application: Development Mode: npm run dev
 
 ## Challenges Faced
@@ -68,6 +71,11 @@ MONGODB_URI=mongodb://shreeshpd07:gRiW8hrRFUmu1ofT@ac-umaavqw-shard-00-00.yokvwt
     -- MongoDB Integration
     -- Project Structure
 -- Frontend:
+    -- Transitioning from Local Storage to MongoDB: The original application stored todos in browser local storage using React state and localStorage.
+    -- MongoDB _id vs Frontend id
+    -- API Communication Issues: I verified backend routes, restarted the server, configured proxy settings correctly, and tested endpoints independently before reconnecting them to the frontend.
+
+
     
 
     
