@@ -40,7 +40,7 @@ function App() {
   })
   const json = await res.json()
   if (!res.ok) {
-    throw new Error(json.error || "Failed to update todo")
+    throw new Error(json.error || "Failed to up todo")
     }
     setTodos((prev) => prev.map((prevTodo) => (
   prevTodo._id === id ? json.data : prevTodo
