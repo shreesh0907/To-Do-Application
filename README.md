@@ -18,7 +18,6 @@ The application allows users to create, view, update, search, and delete tasks w
     Display tasks dynamically
     Perform Create, Read, Update and Delete operations (CRUD Operations)
     Update task status
-    Search tasks
     Handle loading and error states
     Build a responsive user interface
 
@@ -27,7 +26,6 @@ The application allows users to create, view, update, search, and delete tasks w
     View Tasks
     Update Task
     Delete Task
-    Search Task
 
 ### Tech Stack --
 ## Frontend -- 
