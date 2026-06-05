@@ -3,10 +3,11 @@ const express = require('express')
 const dotenv = require('dotenv')
 const todoRoutes = require('./routes/todoRoutes')
 const connectDB = require('./config/globaldatabaseconnection')
+const cors = require('cors')
 
-//Creating the Express app
+//Creating the Express app and using CORS
 const app = express()
-
+app.use(cors())
 //Using the Express App and configuring the dotenv
 app.use(express.json())
 dotenv.config()

@@ -60,6 +60,7 @@ MONGODB_URI=mongodb://shreeshpd07:gRiW8hrRFUmu1ofT@ac-umaavqw-shard-00-00.yokvwt
     npm i dotenv
     npm i mongoose
     npm i mongodb
+    npm i cors
     npm i react-router-dom
 >> Running the Application: Development Mode: npm run dev
 

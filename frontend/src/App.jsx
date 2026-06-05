@@ -9,7 +9,7 @@ function App() {
   const addTodo = async(todo) => {
     try {
       setError("")
-    const res = await fetch('/api/todos', {
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/api/todos`, {
       method: "POST",
       headers: {
       "Content-Type": "application/json"
@@ -31,7 +31,7 @@ function App() {
  const updateTodo = async (id, todo) => {
   try{
     setError("")
-  const res = await fetch(`/api/todos/${id}`, {
+  const res = await fetch(`${import.meta.env.VITE_API_URL}/api/todos/${id}`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json"
@@ -40,7 +40,7 @@ function App() {
   })
   const json = await res.json()
   if (!res.ok) {
-    throw new Error(json.error || "Failed to add todo")
+    throw new Error(json.error || "Failed to update todo")
     }
     setTodos((prev) => prev.map((prevTodo) => (
   prevTodo._id === id ? json.data : prevTodo
@@ -54,12 +54,12 @@ function App() {
   const deleteTodo = async (id) => {
     try{
     setError("")
-  const res = await fetch(`/api/todos/${id}`, {
+  const res = await fetch(`${import.meta.env.VITE_API_URL}/api/todos/${id}`, {
     method: "DELETE"
   })
   const json = await res.json()
   if (!res.ok) {
-    throw new Error(json.error || "Failed to add todo")
+    throw new Error(json.error || "Failed to delete todo")
     }
     setTodos((prev) => prev.filter((prevTodo) => prevTodo._id !== id))
     }
@@ -72,7 +72,7 @@ function App() {
     try{
     setError("")
   const targetTodo = todos.find((todo) => todo._id === id)
-  const res = await fetch(`/api/todos/${id}`, {
+  const res = await fetch(`${import.meta.env.VITE_API_URL}/api/todos/${id}`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json"
@@ -86,7 +86,7 @@ function App() {
   })
   const json = await res.json()
   if (!res.ok) {
-    throw new Error(json.error || "Failed to add todo")
+    throw new Error(json.error || "Failed to toggle todo")
     }
    setTodos((prev) => prev.map((prevTodo) => (
   prevTodo._id === id ? json.data : prevTodo
@@ -99,7 +99,7 @@ function App() {
 
   useEffect(() => {
   const fetchTodos = async () => {
-    const response = await fetch('/api/todos')
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/api/todos`)
     const json = await response.json()
     if (response.ok) {
       setTodos(json.data)
