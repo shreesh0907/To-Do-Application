@@ -42,9 +42,12 @@ The application allows users to create, view, update, search, and delete tasks w
     Netlify
 
 ### Environment Variables
-Create a .env file in the root directory and add:
-PORT=2043
-MONGODB_URI=mongodb://shreeshpd07:gRiW8hrRFUmu1ofT@ac-umaavqw-shard-00-00.yokvwtw.mongodb.net:27017,ac-umaavqw-shard-00-01.yokvwtw.mongodb.net:27017,ac-umaavqw-shard-00-02.yokvwtw.mongodb.net:27017/?ssl=true&replicaSet=atlas-vtzcjm-shard-0&authSource=admin&appName=ToDo
+Create a .env file inside the backend directory:
+```env
+PORT=5000
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_secret_key
+```
 
 ### API Endpoints -- 
     Adding the Task                         >> [POST /todos]
